@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000a3f 50%, #001cb9 100%);
+    font-size: 20px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .container_btn-start,
+    .container_btn-clearTimeout,
+    .container_btn-newGame {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        background: linear-gradient(to bottom, #000a3f 5%, #001cb9 100%);
+        border-radius: 38px;
+        border: 2px solid white;
+        cursor: pointer;
+        color: white;
+        font-size: 1rem;
+        padding: 10px 20px;
+        text-decoration: none;
+
+        &:hover {
+            background: linear-gradient(to bottom, #001cb9 5%, #000a3f 100%);
+        }
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    .container_btn-clearTimeout {
+        top: 30%;
+    }
+
+    .container_btn-newGame {
+        top: 40%;
+    }
+
+    .container_money {
+        width: 20%;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 auto;
+        color: white;
+    }
+
+    .container_timer {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        top: 10%;
+        right: 5%;
+        text-align: center;
+        font-size: 1000%;
+        color: white;
+        // border: 10px solid black;
+        // border-radius: 50%;
+    }
+
+    .container_screen {
+        @include flex(center, center);
+        @include positionAbsolutLeftCenter(10%);
+        width: 50%;
+        height: 40%;
+        font-size: 1.5rem;
+        color: white;
+        border: grey solid 2px;
+        background-color: black;
+        overflow: hidden;
+
+        .container_screen_question {
+            display: none;
+            margin: 0 20px;
+            text-align: center;
+
+            &:active {
+                display: block;
+            }
+        }
+
+        .container_screen_categories {
+            @include flex(space-around, center);
+            // display: none;
+            flex-basis: 100%;
+            height: 30%;
+
+            .container_screen_categories_category {
+                @include flex(center, center);
+                position: relative;
+                top: 500%;
+                width: 30%;
+                height: 100%;
+                border: 2px white solid;
+                border-radius: 50%;
+                background-color: rgb(94, 92, 92);
+                cursor: pointer;
+                transition: top 1s linear, left 1s linear, right 1s linear;
+
+                &:first-child {
+                    left: -100%;
+
+                    &.animation {
+                        top: 0;
+                        left: 0;
+                    }
+                }
+
+                &:last-child {
+                    right: -100%;
+
+                    &.animation {
+                        top: 0;
+                        right: 0;
+                    }
+                }
+
+                &:hover {
+                    color: rgb(26, 19, 19);
+                    background-color: rgb(63, 62, 62);
+                }
+            }
+        }
+    }
+
+    .container_answers {
+        @include flex(space-around, center);
+        @include positionAbsolutLeftCenter(60%);
+        width: 80%;
+        height: 30%;
+        background-color: rgba(26, 5, 146, 0.363);
+        border: 10px solid white;
+
+        .container_answers_playerChoose {
+            width: 20%;
+            height: 50%;
+            font-size: 2rem;
+            text-align: center;
+
+            .container_answers_playerChoose_answer {
+                width: 100%;
+                height: 70%;
+                color: white;
+                background-color: rgb(11, 11, 97);
+                border: 1px solid white;
+                font-size: 30px;
+            }
+
+            .container_answers_playerChoose_answer+input {
+                width: 100%;
+                background-color: rgb(63, 59, 59);
+                color: white;
+                border: none;
+                text-align: right;
+                font-size: 1.5rem;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &[type='number'] {
+                    -moz-appearance: textfield;
+                }
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
+            }
+        }
+    }
+}
