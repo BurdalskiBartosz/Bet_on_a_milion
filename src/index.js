@@ -6,7 +6,7 @@ import Timer from "./js/Timer";
 
 window.addEventListener("load", function () {
   if (screen.width <= 1050) {
-    alert("Spróbuj zagrać na urządzeniu o więkrzej rozdzielczości")
+    alert("Spróbuj zagrać na urządzeniu o większej rozdzielczości")
     location.reload(true);
   }
 })
