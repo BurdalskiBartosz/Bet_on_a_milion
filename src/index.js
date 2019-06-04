@@ -3,6 +3,13 @@ import DrawCategory from "./js/DrawCategory";
 import Betting from "./js/Betting";
 import DrawQuestionAndShowAnswers from "./js/DrawQuestionAndShowAnswers";
 import Timer from "./js/Timer";
+
+window.addEventListener("load", function () {
+  if (screen.width <= 1050) {
+    alert("Spróbuj zagrać na urządzeniu o więkrzej rozdzielczości")
+    location.reload(true);
+  }
+})
 const startGameBet = () => {
   const gameBet = new GameBetOnAMilion(1000000);
   gameBet.drawCategory();
@@ -10,11 +17,9 @@ const startGameBet = () => {
   const btn_newGame = document.querySelector(".container_btn-newGame");
   btn_newGame.addEventListener("click", newGame);
 };
-
 const newGame = () => {
   location.reload(true);
 };
-
 const btn_start = document.querySelector(".container_btn-start");
 btn_start.addEventListener("click", startGameBet);
 
@@ -74,7 +79,7 @@ class GameBetOnAMilion {
         if (this.questionCounter != 8 && this.yourMoneyToBet != 0) {
           alert(
             `Poprawna odpowiedź to ${
-              this.returnOfDrawQuestion[0]
+            this.returnOfDrawQuestion[0]
             } i  wygrałeś ${this.yourMoneyToBet}`
           );
           this.drawCategory();
@@ -84,7 +89,7 @@ class GameBetOnAMilion {
           } else {
             alert(
               `Niestety nie udało Ci się wygrać :( Poprawna odpowiedź to: ${
-                this.returnOfDrawQuestion[0]
+              this.returnOfDrawQuestion[0]
               }`
             );
           }
