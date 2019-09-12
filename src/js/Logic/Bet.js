@@ -1,20 +1,19 @@
 export default class Bet {
-    constructor() {
-    }
-    bet(key, money) {
+    static bet(key, money) {
+        let moneyInt = parseInt(money);
         switch (key) {
             case 38:
-                return money == 0 ? event.preventDefault() : money -= 50000;
+                return moneyInt == 0 ? this.prevent(moneyInt) : moneyInt - 50000;
             case 40:
-                return money == this.yourMoneyToBet ? event.preventDefault() : this.checkYouCanStillPlay(e.target.value);
+                return moneyInt == 1000000 ? this.prevent(moneyInt) : moneyInt + 50000;
             default:
                 event.preventDefault();
                 alert("ZŁY PRZYCISK");
+                return moneyInt;
         }
     }
-    checkYouCanStillPlay(e) {
-        if (e != 0) {
-            money = parseInt(money) + 50000;
-        }
+    static prevent(moneyInt) {
+        event.preventDefault();
+        return moneyInt;
     }
 }
